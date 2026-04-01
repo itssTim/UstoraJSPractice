@@ -15,12 +15,14 @@ let updateCart = function(item) {
     localStorage.setItem('cart', cart);
 };
 
-let getCartItems = function(item) {
-    let items = retrievedCart.map(item => ({
-        item_id: item.item_id,
-        item_name: item.item_name,
-        price: item.price,
-        item_category: item.item_category,
-        quantity: item.quantity,
+let getCartItems = function() {
+    let retrievedCart = checkCart();
+    let items = retrievedCart.map(cartItem => ({
+        item_id: cartItem.item_id,
+        item_name: cartItem.item_name,
+        price: cartItem.price,
+        item_category: cartItem.item_category,
+        quantity: cartItem.quantity,
 }));
+return items;
 };
