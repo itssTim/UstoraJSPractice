@@ -47,7 +47,7 @@ let add_to_cart = function() {
         }
     ]
 });
-
+window.location.href = 'cart.html'
 };
 
 addButton.addEventListener('click', add_to_cart);
