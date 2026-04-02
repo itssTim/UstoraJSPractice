@@ -38,6 +38,12 @@ let renderCart = function() {
 
         document.querySelector('.cart_items').appendChild(tr);
     }
+    
+    let subtotal = items.reduce((total, item) => {return total + (item.price * item.quantity)}, 0);
+    let subT = document.querySelector('.cart-subtotal');
+    let tdSubtotal = document.createElement('td');
+    tdSubtotal.classList.add('amount');
+    tdSubtotal.innerHTML = `$${subtotal.toFixed(2)};
 };
 
 
@@ -65,4 +71,4 @@ document.querySelector('.shop_table').addEventListener('click', function(e){
         localStorage.setItem(‘cart’, cart);
         renderCart();
     };
-})
+});
