@@ -779,13 +779,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                             <tr class="shipping">
                                                 <th>Shipping and Handling</th>
-                                                <td>
-
-                                                    $10.20
-                                                    <input type="hidden" class="shipping_method" value="10.20" id="shipping_method_0" data-index="0" name="shipping_method[0]">
+                                                <td>$10.20 <input type="hidden" class="shipping_method" value="10.20" id="shipping_method_0" data-index="0" name="shipping_method[0]">
                                                 </td>
                                             </tr>
 
+                                            <tr class="tax">
+                                                <th>Tax</th>
+                                            </tr>
 
                                             <tr class="order-total">
                                                 <th>Order Total</th>
@@ -810,7 +810,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                         <div class="form-row place-order">
 
-                                            <input type="submit" data-value="Place order" value="Place order" id="place_order" name="woocommerce_checkout_place_order" class="button alt">
+                                            <button type="button" class="order_button">Place Order</button>
 
 
                                         </div>
@@ -833,6 +833,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
    
+    <!--General Scripts-->
+    <script src="utils.js"></script>
+    <script src="checkout.js"></script>
+    
     <!-- Latest jQuery form server -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
     

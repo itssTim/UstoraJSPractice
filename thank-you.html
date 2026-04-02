@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Product Page - Ustora Demo</title>
+    <title>Cart Page - Ustora Demo</title>
     
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -57,7 +57,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 
                 <div class="col-sm-6">
-
                 </div>
             </div>
         </div>
@@ -73,36 +72,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                </div> 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="samsung-product.html">Samsung Phone</a></li>
-                        <li class="active"><a href="sony-product.html">Sony Phone</a></li>
-                        <li><a href="apple-product.html">Apple Phone</a></li>
-                        <li><a href="screen-product.html">Screen Protector</a></li>
-                        <li><a href="cart.html">Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                    </ul>
                 </div>  
             </div>
         </div>
     </div> <!-- End mainmenu area -->
     
-    <!--Item Info-->
-    <div id=’item’ data-item_id='SKU-002' data-item_name="Sony Phone" data-price=500.00 data-item_category='Electronics'></div>
-
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Shop</h2>
+                        <h2>Thank You!</h2>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- End Page title area -->
     
     
     <div class="single-product-area">
@@ -110,62 +95,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="container">
             <div class="row">
                 
+    
                 <div class="col-md-8">
                     <div class="product-content-right">
-                        
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="product-images">
-                                    <div class="product-main-img">
-                                        <img src="img/product-4.jpg" alt="">
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-6">
-                                <div class="product-inner">
-                                    <h2 class="product-name">Sony Phone</h2>
-                                    <div class="product-inner-price">
-                                        <ins>$500.00</ins> 
-                                    </div>    
-                                    
-                                        <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>
-                                        <button class="add_to_cart_button" type="button">Add to cart</button> 
-                                    
-                                    
-                                    <div role="tabpanel">
-                                        <ul class="product-tab" role="tablist">
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                                <h2>Product Description</h2>  
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
+                        <div class="woocommerce">
+                            <form method="post" action="#">
+                                <table cellspacing="0" class="shop_table cart">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-subtotal">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="cart_items">
+                                    </tbody>
+                                </table>
+                            </form>
 
-                                                <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p>
-                                            </div>
+                            <div class="cart-collaterals">
 
-                                        </div>
-                                    </div>
-                                    
-                                </div>
+
+                            <div class="cart_totals ">
+                                <h2>Cart Totals</h2>
+
+                                <table cellspacing="0">
+                                    <tbody>
+                                        <tr class="cart-subtotal">
+                                            <th>Cart Subtotal</th>
+                                        </tr>
+                                        <tr class="shipping">
+                                            <th>Shipping and Handling</th>
+                                            <td>$10.20 <input type="hidden" class="shipping_method" value="10.20" id="shipping_method_0" data-index="0" name="shipping_method[0]">
+                                            </td>
+
+                                        <tr class="tax">
+                                            <th>Tax</th>
+                                        </tr>
+
+                                        <tr class="order-total">
+                                            <th>Order Total</th>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-                        
-                        </div>                                    
+
+
                             </div>
-                        </div>
+                        </div>                        
                     </div>                    
                 </div>
             </div>
         </div>
     </div>
 
+
     <!--Script for functionality-->
     <script src="utils.js"></script>
-    <script src="product.js"></script>
+    <script src="thankyou.js"></script>
 
     <!-- Latest jQuery form server -->
     <script src="https://code.jquery.com/jquery.min.js"></script>

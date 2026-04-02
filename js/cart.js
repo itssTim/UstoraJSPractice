@@ -43,7 +43,8 @@ let renderCart = function() {
     let subT = document.querySelector('.cart-subtotal');
     let tdSubtotal = document.createElement('td');
     tdSubtotal.classList.add('amount');
-    tdSubtotal.innerHTML = `$${subtotal.toFixed(2)};
+    tdSubtotal.innerHTML = `$${subtotal.toFixed(2)}`
+    subT.appendChild(tdSubtotal);
 };
 
 

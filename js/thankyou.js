@@ -1,23 +1,33 @@
 'use strict';
 
+let transaction_id = window.localStorage.getItem('transaction_id') || crypto.randomUUID();
+localStorage.setItem('transaction_id', transaction_id);
+
 let items = getCartItems();
 
-let orderButton = document.querySelector('.order_button');
+let shipping = 10.20;
 
-let renderOrder = function() {
+let renderConfirmation = function() {
     document.querySelector(".cart_items").innerHTML = "";
 
     for (item of items) {
 
-        let tdProductxQuantity = document.createElement('td');
-        tdProductxQuantity.innerHTML = `${item.item_name} x ${item.quantity}`;
+        let tdProduct = document.createElement('td');
+        tdProduct.innerHTML = item.item_name;
 
+        let tdPrice = document.createElement('td');
+        tdPrice.innerHTML = item.price;
+
+        let tdQuantity = document.createElement('td');
+        tdQuantity.innerHTML = item.quantity;
 
         let tdTotal = document.createElement('td');
         tdTotal.innerHTML = `${item.price * item.quantity}`;
 
         let tr = document.createElement('tr');
-        tr.appendChild(tdProductxQuantity);
+        tr.appendChild(tdProduct);
+        tr.appendChild(tdPrice);
+        tr.appendChild(tdQuantity);
         tr.appendChild(tdTotal);
 
         document.querySelector('.cart_items').appendChild(tr);
@@ -29,37 +39,32 @@ let renderOrder = function() {
     tdSubtotal.classList.add('amount');
     tdSubtotal.innerHTML = `$${subtotal.toFixed(2)}`;
     subT.appendChild(tdSubtotal);
-    
+
     let taxAmt = parseFloat(subtotal) * 0.0753;
     let tax = document.querySelector('.tax');
     let tdTax = document.createElement('td');
     tdTax.innerHTML = `$${taxAmt.toFixed(2)}`;
     tax.appendChild(tdTax);
 
-    let shipping = 10.20;
     let total = parseFloat(subtotal + taxAmt + shipping);
     let orderTotal = document.querySelector('.order-total');
     let tdOrderTotal = document.createElement('td');
     tdOrderTotal.innerHTML = `$${total.toFixed(2)}`;
     orderTotal.appendChild(tdOrderTotal);
 
-    return total;
+    return {total, taxAmt};
 };
 
-let total = renderOrder();
+let {total, taxAmt}= renderConfirmation();
 
-//DataLayer Push
 window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
-    event: 'begin_checkout',
-    currency: 'USD',
-    value: total,
-    items: items });
-    
-orderButton.addEventListener('click', function(){
-    if (items.length === 0) {alert('Your cart is empty!');
-    return;}
+event: 'purchase',
+currency: 'USD',
+value: total,
+items: items,
+transaction_id : transaction_id,
+tax: taxAmt,
+shipping: shipping, });
 
-    else {window.location.href = 'thank-you-page.html'
-    };
-});
+localStorage.removeItem('cart');
