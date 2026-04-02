@@ -9,7 +9,7 @@ let checkCart = function(){
 let updateCart = function(item) {
     let retrievedCart = checkCart();
     let itemInCart = retrievedCart.find(cartItem => cartItem.item_id === item.item_id);
-    if (itemInCart) {itemInCart.quantity += quantity}
+    if (itemInCart) {itemInCart.quantity += item.quantity}
     else {retrievedCart.push(item)}
     let cart = JSON.stringify(retrievedCart);
     localStorage.setItem('cart', cart);

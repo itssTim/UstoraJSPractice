@@ -6,7 +6,7 @@ let items = getCartItems();
 let renderCart = function() {
     document.querySelector(".cart_items").innerHTML = "";
 
-    for (item of items) {
+    for (let item of items) {
         let tdRemove = document.createElement('td');
         let tdRemoveButton = document.createElement('button');
         tdRemoveButton.classList.add('removeButton');
@@ -18,7 +18,7 @@ let renderCart = function() {
         tdProduct.innerHTML = item.item_name;
 
         let tdPrice = document.createElement('td');
-        tdPrice.innerHTML = item.price;
+        tdPrice.innerHTML = `$${item.price.toFixed(2)}`;
 
         let tdQuantity = document.createElement('td');
         tdQuantity.innerHTML = `
@@ -27,7 +27,8 @@ let renderCart = function() {
         <input type="button" data-item_id='${item.item_id}' class="plus" value="+">`;
 
         let tdTotal = document.createElement('td');
-        tdTotal.innerHTML = `${item.price * item.quantity}`;
+        let x = item.price * item.quantity;
+        tdTotal.innerHTML = `$${x.toFixed(2)}`;
 
         let tr = document.createElement('tr');
         tr.appendChild(tdRemove);
@@ -43,10 +44,13 @@ let renderCart = function() {
     let subT = document.querySelector('.cart-subtotal');
     let tdSubtotal = document.createElement('td');
     tdSubtotal.classList.add('amount');
-    tdSubtotal.innerHTML = `$${subtotal.toFixed(2)}`
+    let existingTd = subT.querySelector('td');
+    if (existingTd) existingTd.remove();
+    tdSubtotal.innerHTML = `$${subtotal.toFixed(2)}`;
     subT.appendChild(tdSubtotal);
 };
 
+renderCart();
 
 document.querySelector('.shop_table').addEventListener('click', function(e){
     let clickedId = e.target.dataset.item_id;
@@ -55,7 +59,7 @@ document.querySelector('.shop_table').addEventListener('click', function(e){
         let item = items.find(item => item.item_id === clickedId);
         if (item.quantity > 1) {item.quantity -= 1};
         let cart = JSON.stringify(items);
-        localStorage.setItem(‘cart’, cart);
+        localStorage.setItem("cart", cart);
         renderCart();
 
     };
@@ -63,13 +67,16 @@ document.querySelector('.shop_table').addEventListener('click', function(e){
         let item = items.find(item => item.item_id === clickedId);
         item.quantity += 1;
         let cart = JSON.stringify(items);
-        localStorage.setItem(‘cart’, cart);
+        localStorage.setItem("cart", cart);
         renderCart();
     };
     if (e.target.classList.contains('removeButton')) {
         items = items.filter(item => item.item_id !== clickedId);
         let cart = JSON.stringify(items);
-        localStorage.setItem(‘cart’, cart);
+        localStorage.setItem("cart", cart);
         renderCart();
     };
 });
+
+let checkoutButton = document.querySelector('.checkout_button');
+checkoutButton.addEventListener('click', function(){window.location.href = 'checkout.html'})

@@ -7,14 +7,15 @@ let orderButton = document.querySelector('.order_button');
 let renderOrder = function() {
     document.querySelector(".cart_items").innerHTML = "";
 
-    for (item of items) {
+    for (let item of items) {
 
         let tdProductxQuantity = document.createElement('td');
         tdProductxQuantity.innerHTML = `${item.item_name} x ${item.quantity}`;
 
 
         let tdTotal = document.createElement('td');
-        tdTotal.innerHTML = `${item.price * item.quantity}`;
+        let x = item.price * item.quantity;
+        tdTotal.innerHTML = `$${x.toFixed(2)}`;
 
         let tr = document.createElement('tr');
         tr.appendChild(tdProductxQuantity);
@@ -60,6 +61,6 @@ orderButton.addEventListener('click', function(){
     if (items.length === 0) {alert('Your cart is empty!');
     return;}
 
-    else {window.location.href = 'thank-you-page.html'
+    else {window.location.href = 'thank-you.html'
     };
 });

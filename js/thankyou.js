@@ -3,6 +3,9 @@
 let transaction_id = window.localStorage.getItem('transaction_id') || crypto.randomUUID();
 localStorage.setItem('transaction_id', transaction_id);
 
+let transaction_id_el = document.querySelector('.transaction_id');
+transaction_id_el.innerHTML= `Order ID: ${transaction_id}`;
+
 let items = getCartItems();
 
 let shipping = 10.20;
@@ -10,7 +13,7 @@ let shipping = 10.20;
 let renderConfirmation = function() {
     document.querySelector(".cart_items").innerHTML = "";
 
-    for (item of items) {
+    for (let item of items) {
 
         let tdProduct = document.createElement('td');
         tdProduct.innerHTML = item.item_name;
