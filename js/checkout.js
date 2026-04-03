@@ -54,7 +54,7 @@ window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
     event: 'begin_checkout',
     currency: 'USD',
-    value: total,
+    value: parseFloat(total.toFixed(2)),
     items: items });
     
 orderButton.addEventListener('click', function(){

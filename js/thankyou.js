@@ -64,7 +64,7 @@ window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({
 event: 'purchase',
 currency: 'USD',
-value: total,
+value: parseFloat(total.toFixed(2)),
 items: items,
 transaction_id : transaction_id,
 tax: taxAmt,
