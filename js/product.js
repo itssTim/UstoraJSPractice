@@ -13,7 +13,7 @@ let view_item = function(){
         {
             item_id: item.dataset.item_id,
             item_name: item.dataset.item_name,
-            price: parseFloat(item.dataset.price.toFixed(2)),
+            price: parseFloat(item.dataset.price),
             item_category: item.dataset.item_category,
             quantity: 1,
 },]})};
@@ -26,7 +26,7 @@ let add_to_cart = function() {
     let items = {
         item_id: item.dataset.item_id,
             item_name: item.dataset.item_name,
-            price: parseFloat(item.dataset.price.toFixed(2)),
+            price: parseFloat(item.dataset.price),
             item_category: item.dataset.item_category,
             quantity: quantity,
     };
@@ -41,7 +41,7 @@ let add_to_cart = function() {
         {
             item_id: item.dataset.item_id,
             item_name: item.dataset.item_name,
-            price: parseFloat(item.dataset.price.toFixed(2)),
+            price: parseFloat(item.dataset.price),
             item_category: item.dataset.item_category,
             quantity: quantity,
         }
